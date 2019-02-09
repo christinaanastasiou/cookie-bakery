@@ -1,0 +1,73 @@
+.bakery {
+    padding-top: 15px;
+    width: 540px;
+    max-width: 540px;
+}
+.sun {
+    width: 120px;
+    height: 120px;
+    background: #ffff00;
+    border-radius: 50%;
+}
+.triangle {
+    margin-left: -15px;
+    width: 0;
+	height: 0;
+	border-left: 270px solid transparent;
+	border-right: 270px solid transparent;
+	border-bottom: 250px solid #dd7e6b;
+}
+.title {
+    position: absolute;
+    bottom: -25px;
+    background: #93c47d;
+    border: 2px solid #6aa84f;
+    padding: 6px 20px;
+    width: 224px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: #274e13;
+}
+.square {
+    background: #cccccc;
+}
+.cookie {
+    width: 110px;
+    height: 110px;
+    background: #cfe2f3;
+    border-radius: 50%;
+    border: 2px solid #9fc5e8;
+    margin: 40px auto;
+}
+.door {
+    width: 140px;
+    height: 220px;
+    background: #f6b26b;
+    margin: 120px auto 0;
+    position: relative;
+}
+.handle {
+    width: 25px;
+    height: 5px;
+    background: #b45f06;
+    position: absolute;
+    top: 100px;
+    left: 5px;
+}
+.mailbox {
+    width: 120px;
+    height: 80px;
+    background: #999999;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    color: #565656;
+}
+.hole {
+    width: 80px;
+    height: 10px;
+    background: #666666;
+    margin: 5px auto 10px;
+}
