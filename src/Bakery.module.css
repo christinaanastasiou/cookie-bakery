@@ -1,19 +1,25 @@
-.bakery {
-    height: 100vh;
-}
 .wrapper {
     padding-top: 15px;
     width: 540px;
     max-width: 540px;
 }
+.bakery {
+    height: 100%;
+    background-color: white;
+}
 .night {
     background-color: black;
+    transition: background-color 0.5s;
 }
 .sun {
     width: 120px;
     height: 120px;
-    background: #ffff00;
+    background-color: #ffff00;
     border-radius: 50%;
+    transition: background-color 0.5s;
+}
+.night .sun {
+    background-color: gray;
 }
 .triangle {
     margin-left: -15px;
@@ -48,7 +54,7 @@
     margin: 40px auto;
     cursor: pointer;
 }
-.bakery:not(.night) .cookie:hover {
+:not(.night) .cookie:hover {
     background-image: url(/img/cookie.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -61,6 +67,7 @@
     background: #f6b26b;
     margin: 120px auto 0;
     position: relative;
+    cursor: pointer;
 }
 .handle {
     width: 25px;

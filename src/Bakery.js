@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './Bakery.module.css';
 
@@ -8,6 +9,7 @@ class Bakery extends Component {
     super()
     this.toggleBakeryState = this.toggleBakeryState.bind(this)
     this.handleMailboxClick = this.handleMailboxClick.bind(this)
+    this.placeOrder = this.placeOrder.bind(this)
     this.state = {
       opened: true,
       mailboxFalling: false
@@ -38,7 +40,7 @@ class Bakery extends Component {
               <div className={styles.cookie}></div>
             </Col>
             <Col xs="4">
-              <div className={styles.door}>
+              <div className={styles.door} onClick={this.placeOrder}>
                 <div className={styles.handle}></div>
               </div>
             </Col>
@@ -57,16 +59,29 @@ class Bakery extends Component {
     );
   }
 
-  toggleBakeryState(e) {
+  toggleBakeryState() {
     this.setState({
       opened: !this.state.opened
     })
   }
 
-  handleMailboxClick(e) {
+  handleMailboxClick() {
     this.setState({
       mailboxFalling: true
     })
+  }
+
+  placeOrder() {
+    if (this.state.opened) {
+      let now = new Date();
+      axios.post('http://localhost/order.php', {timestamp: now.getTime()})
+        .then(function (response) {
+          console.log("Created order "+ response.data.orderId +" with timestamp "+ response.data.timestamp);
+        })
+        .catch(function (error) {
+          console.log(error.data);
+        })
+    }
   }
 
 }
