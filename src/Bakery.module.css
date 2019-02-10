@@ -46,6 +46,7 @@
     border-radius: 50%;
     border: 2px solid #9fc5e8;
     margin: 40px auto;
+    cursor: pointer;
 }
 .bakery:not(.night) .cookie:hover {
     background-image: url(/img/cookie.png);
@@ -77,10 +78,23 @@
     padding: 10px;
     margin: 0 auto;
     color: #565656;
+    cursor: pointer;
+}
+.boxFalling {
+    animation-name: mailboxfall;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
 }
 .hole {
     width: 80px;
     height: 10px;
     background: #666666;
     margin: 5px auto 10px;
+}
+
+@keyframes mailboxfall {
+    0%   {transform: rotate(0) translateY(0)}
+    25%  {transform: rotate(15deg) translateY(0)}
+    75%  {transform: rotate(-15deg) translateY(30px)}
+    100% {transform: rotate(0) translateY(70px);}
 }

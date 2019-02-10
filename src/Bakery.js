@@ -7,8 +7,10 @@ class Bakery extends Component {
   constructor() {
     super()
     this.toggleBakeryState = this.toggleBakeryState.bind(this)
+    this.handleMailboxClick = this.handleMailboxClick.bind(this)
     this.state = {
-      opened: true
+      opened: true,
+      mailboxFalling: false
     }
   }
 
@@ -18,7 +20,7 @@ class Bakery extends Component {
         <Container className={styles.wrapper}>
           <Row>
             <Col xs={{ size: 3, offset: 9 }}>
-              <div 
+              <div
                 className={styles.sun}
                 onClick={this.toggleBakeryState}></div>
             </Col>
@@ -42,14 +44,16 @@ class Bakery extends Component {
             </Col>
             <Col xs="4">
               <div className={styles.cookie}></div>
-              <div className={styles.mailbox}>
+              <div
+                className={[styles.mailbox, this.state.mailboxFalling ? styles.boxFalling : ''].join(' ')}
+                onClick={this.handleMailboxClick}>
                 <div className={styles.hole}></div>
-                <h5>Mailbox</h5>
+                <span>Mailbox</span>
               </div>
             </Col>
           </Row>
         </Container>
-        </div>
+      </div>
     );
   }
 
@@ -57,7 +61,12 @@ class Bakery extends Component {
     this.setState({
       opened: !this.state.opened
     })
-    console.log('state is ' + this.state.opened);
+  }
+
+  handleMailboxClick(e) {
+    this.setState({
+      mailboxFalling: true
+    })
   }
 
 }
