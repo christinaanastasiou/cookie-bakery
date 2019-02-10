@@ -4,12 +4,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './Bakery.module.css';
 
 class Bakery extends Component {
+  constructor() {
+    super()
+    this.toggleBakeryState = this.toggleBakeryState.bind(this)
+    this.state = {
+      opened: true
+    }
+  }
+
   render() {
     return (
+      <div className={[styles.bakery, !this.state.opened ? styles.night : ''].join(' ')}>
         <Container className={styles.wrapper}>
           <Row>
             <Col xs={{ size: 3, offset: 9 }}>
-              <div className={styles.sun}></div>
+              <div 
+                className={styles.sun}
+                onClick={this.toggleBakeryState}></div>
             </Col>
           </Row>
           <Row>
@@ -38,8 +49,17 @@ class Bakery extends Component {
             </Col>
           </Row>
         </Container>
+        </div>
     );
   }
+
+  toggleBakeryState(e) {
+    this.setState({
+      opened: !this.state.opened
+    })
+    console.log('state is ' + this.state.opened);
+  }
+
 }
 
 export default Bakery;

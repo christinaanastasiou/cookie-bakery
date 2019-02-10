@@ -1,7 +1,13 @@
+.bakery {
+    height: 100vh;
+}
 .wrapper {
     padding-top: 15px;
     width: 540px;
     max-width: 540px;
+}
+.night {
+    background-color: black;
 }
 .sun {
     width: 120px;
@@ -40,6 +46,13 @@
     border-radius: 50%;
     border: 2px solid #9fc5e8;
     margin: 40px auto;
+}
+.bakery:not(.night) .cookie:hover {
+    background-image: url(/img/cookie.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid transparent;
+    background-color: transparent;
 }
 .door {
     width: 140px;
