@@ -54,7 +54,7 @@
     margin: 40px auto;
     cursor: pointer;
 }
-:not(.night) .cookie:hover {
+.bakery:not(.night) .cookie:hover {
     background-image: url(/img/cookie.png);
     background-size: cover;
     background-repeat: no-repeat;
